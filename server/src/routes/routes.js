@@ -1,8 +1,11 @@
 const express = require('express');
-
 const router = express.Router()
-router.get('/Lakshya',(req,res)=>{
-    return res.send({status:true,msg:"hi Lakshya"})
+const { CreateUsers } = require('../controller/usercontroller')
+
+router.post('/Lakshya', CreateUsers)
+
+router.all('/*',(req,res)=>{
+    return res.status(400).send({status:false,msg:'Invalid Url'})
 })
 
 module.exports = router;
