@@ -1,12 +1,21 @@
 const express = require('express');
 const router = express.Router()
 const multer = require('multer')
-const { CreateUsers, getAllUserData } = require('../controller/usercontroller')
+const { CreateUsers } = require('../controller/usercontroller')
+const { CreateAdmin, getAllUserData } = require('../controller/adminController')
+const { CreateShopkeeper } = require('../controller/shopkeeperController')
 
 const upload = multer({ storage: multer.diskStorage({}), })
 
-router.post('/CreateUsers', upload.single(),CreateUsers)
+// User API's
+router.post('/CreateUsers', upload.single(), CreateUsers)
+
+// Admin Api's
+router.post('/CreateAdmin', upload.single(), CreateAdmin)
 router.get('/getAllUserData', getAllUserData)
+
+// Shopkeeper API's
+router.post('/CreateShopkeeper', upload.single(), CreateShopkeeper)
 
 
 router.all('/*', (req, res) => {
