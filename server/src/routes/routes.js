@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router()
-const multer = require('multer')
-const { CreateUsers } = require('../controller/usercontroller')
+const multer = require('multer')//used to upload img or videos
+const { CreateUsers, UserLogIn } = require('../controller/usercontroller')
 const { CreateAdmin, getAllUserData } = require('../controller/adminController')
 const { CreateShopkeeper } = require('../controller/shopkeeperController')
 
@@ -9,6 +9,7 @@ const upload = multer({ storage: multer.diskStorage({}), })
 
 // User API's
 router.post('/CreateUsers', upload.single(), CreateUsers)
+router.post('/UserLogIn', upload.single(), UserLogIn)
 
 // Admin Api's
 router.post('/CreateAdmin', upload.single(), CreateAdmin)

@@ -18,7 +18,7 @@ const authorSchema = new mongoose.Schema({
     role: { 
         type: String,
         enum:['Admin','Customer','Shopkeeper'],
-        required: true, unique: true, trim: true 
+        required: true, trim: true 
     },
     isDeleted: { type: String, default: false, trim: true },
     isVerify: { type: String, default: false, trim: true }
@@ -28,4 +28,4 @@ const authorSchema = new mongoose.Schema({
     { timestamps: true }
 )
 
-module.exports = mongoose.model('userData', authorSchema);
+module.exports = mongoose.model('userDB', authorSchema);

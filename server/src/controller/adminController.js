@@ -17,7 +17,7 @@ module.exports.CreateAdmin = async (req, res) => {
         req.body.role = 'Admin'
 
         const UserDB = await userModel.create(data)
-        return res.status(201).send({ status: true, msg: "Successfully Created Data", data: UserDB })
+        return res.status(201).send({ status: true, msg: "Successfully Created Admin Data", data: UserDB })
     }
     catch (e) { return errorHandle(e,res) }
 }
