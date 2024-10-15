@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router()
 const multer = require('multer')//used to upload img or videos
-const { CreateUsers, UserLogIn } = require('../controller/usercontroller')
+const { CreateUsers, UserLogIn  } = require('../controller/usercontroller')
 const { CreateAdmin, getAllUserData } = require('../controller/adminController')
 const { CreateShopkeeper } = require('../controller/shopkeeperController')
 
