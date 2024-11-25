@@ -30,7 +30,7 @@ module.exports.getAllUserData = async (req, res) => {
         const data = await userModel.find({role: 'Customer'})
         return res.status(200).send({ status: true, data: data })
     }
-    catch (e) { return res.status(500).send({ status: false, msg: e.message }) }
+    catch (e) { return errorHandle(e, res) }
 
 }
 
@@ -54,7 +54,7 @@ module.exports.AdminLogIn = async (req, res) => {
 
         const token = jwt.sign({ UserId: CustomerId, AuthorName: checkMailId.name }, process.env.AdminTokenKey, { expiresIn: '12h' })
 
-        return res.status(200).send({ status: true, msg: "Successfully Create Shopkeeper token", UserId: CustomerId, token: token })
+        return res.status(200).send({ status: true, msg: "Successfully Create Admin token", UserId: CustomerId, token: token })
     }
     catch (e) { return errorHandle(e, res) }
 }

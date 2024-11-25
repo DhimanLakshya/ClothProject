@@ -20,6 +20,7 @@ const authorSchema = new mongoose.Schema({
         enum:['Admin','Customer','Shopkeeper'],
         required: true, trim: true 
     },
+    UsertOtp: { type: String, trim: true },
     isDeleted: { type: String, default: false, trim: true },
     isVerify: { type: String, default: false, trim: true }
     
